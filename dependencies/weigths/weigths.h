@@ -1,4 +1,6 @@
 #pragma once
+#include <vcruntime.h>
+#include <ratio>
 
 namespace Weight
 {
