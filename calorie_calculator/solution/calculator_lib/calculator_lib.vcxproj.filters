@@ -19,7 +19,7 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\src\basic_calculation.cpp">
+    <ClCompile Include="..\..\src\algorithm.cpp">
       <Filter>src</Filter>
     </ClCompile>
   </ItemGroup>
