@@ -118,7 +118,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\inc\basic_calculation.h" />
+    <ClInclude Include="..\..\inc\algorithm.h" />
     <ClInclude Include="..\..\inc\calories.h" />
   </ItemGroup>
   <ItemGroup>

@@ -11,10 +11,10 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\inc\basic_calculation.h">
+    <ClInclude Include="..\..\inc\calories.h">
       <Filter>inc</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\inc\calories.h">
+    <ClInclude Include="..\..\inc\algorithm.h">
       <Filter>inc</Filter>
     </ClInclude>
   </ItemGroup>
