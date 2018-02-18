@@ -119,6 +119,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="..\..\inc\basic_calculation.h" />
+    <ClInclude Include="..\..\inc\calories.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\src\basic_calculation.cpp" />

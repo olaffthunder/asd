@@ -14,6 +14,9 @@
     <ClInclude Include="..\..\inc\basic_calculation.h">
       <Filter>inc</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\inc\calories.h">
+      <Filter>inc</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\src\basic_calculation.cpp">
