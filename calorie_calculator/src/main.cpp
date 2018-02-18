@@ -5,6 +5,6 @@
 int main()
 {
     calorie_calculator::Kilogramm weigth{72.8};
-    std::cout << calorie_calculator::basic_metabolism_estimation::harris_benedict_equation(weigth, 184, 25).get();
+    std::cout << calorie_calculator::basic_metabolism_estimation::harris_benedict_equation_original(weigth, 184, 25).get();
     return 0;
 }
