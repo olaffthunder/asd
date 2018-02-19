@@ -4,11 +4,11 @@
 ## Get latest from https://github.com/github/gitignore/blob/master/VisualStudio.gitignore
 
 # User-specific files
-**.suo
-**.user
-**.userosscache
-**.sln.docstates
-**.ipch
+**/*.suo
+**/*.user
+**/*.userosscache
+**/*.sln.docstates
+**/*.ipch
 
 # User-specific files (MonoDevelop/Xamarin Studio)
 **.userprefs
@@ -29,27 +29,27 @@
 **/.vs/
 
 # Files built by Visual Studio
-**_i.c
-**_p.c
-**_i.h
-**.ilk
-**.meta
-**.obj
-**.pch
-**.pdb
-**.pgc
-**.pgd
-**.rsp
-**.sbr
-**.tlb
-**.tli
-**.tlh
-**.tmp
-**.tmp_proj
-**.log
-**.vspscc
-**.vssscc
+**/*_i.c
+**/*_p.c
+**/*_i.h
+**/*.ilk
+**/*.meta
+**/*.obj
+**/*.pch
+**/*.pdb
+**/*.pgc
+**/*.pgd
+**/*.rsp
+**/*.sbr
+**/*.tlb
+**/*.tli
+**/*.tlh
+**/*.tmp
+**/*.tmp_proj
+**/*.log
+**/*.vspscc
+**/*.vssscc
 **/.builds
-**.pidb
-**.svclog
-**.scc
+**/*.pidb
+**/*.svclog
+**/*.scc
