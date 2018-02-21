@@ -8,6 +8,7 @@ public:
     constexpr explicit StrongType(T&& value) : value_(std::move(value)) {}
     T& get() { return value_; }
     T const& get() const { return value_; }
+    T const& operator*(){ return get(); }
 private:
     T value_;
 };

@@ -118,6 +118,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\inc\age.h" />
     <ClInclude Include="..\..\inc\algorithm.h" />
     <ClInclude Include="..\..\inc\basic_utility.h" />
     <ClInclude Include="..\..\inc\calories.h" />
