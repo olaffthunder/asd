@@ -2,6 +2,7 @@
 #include <vcruntime.h>
 #include <ratio>
 #include "dependencies/strong_types/strong_types.h"
+#include "dependencies/unit/unit.h"
 
 namespace calorie_calculator
 {
