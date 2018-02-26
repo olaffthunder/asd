@@ -29,14 +29,14 @@ namespace Weight
         { }
 
         constexpr Unit(const Unit& other)
-            : _weight(other._weight)
+            : value_(other.value_)
         { }
 
         Unit& operator=(const Unit& other)
         {
             if (this != &other)
             {
-                _weight = other._weight;
+                value_ = other.value_;
             }
 
             return *this;
@@ -64,13 +64,7 @@ namespace Weight
 
             conversion /= Ratio::den * W::Ratio::num;
 
-            return W(_weight * conversion);
-        }
-
-        // Member access
-        Type weight() const
-        {
-            return _weight;
+            return W(value_ * conversion);
         }
 
         /*
@@ -84,42 +78,42 @@ namespace Weight
         */
         Unit& operator+=(const Unit& other)
         {
-            _weight += other.weigth;
+            value_ += other.weigth;
 
             return *this;
         }
 
         Unit operator+(Unit other)
         {
-            other._weight += _weight;
+            other.value_ += value_;
 
             return other;
         }
 
         Unit& operator-=(const Unit& other)
         {
-            _weight -= other._weight;
+            value_ -= other.value_;
 
             return *this;
         }
 
         Unit operator-(Unit other)
         {
-            other._weight += _weight;
+            other.value_ += value_;
 
             return other;
         }
 
         Unit& operator*=(Type factor)
         {
-            _weight *= factor;
+            value_ *= factor;
 
             return *this;
         }
 
         Unit operator*(Type factor)
         {
-            return Unit(_weight * factor);
+            return Unit(value_ * factor);
         }
 
         friend Unit operator*(Type factor, const Unit& weight)
@@ -129,24 +123,20 @@ namespace Weight
 
         Unit& operator/=(Type factor)
         {
-            _weight /= factor;
+            value_ /= factor;
 
             return *this;
         }
 
         Unit operator/(Type factor)
         {
-            return Unit(_weight / factor);
+            return Unit(value_ / factor);
         }
 
         friend Unit operator/(Type factor, const Unit& weight)
         {
             return weight / factor;
         }
-
-    private:
-
-        Type _weight;
     };
 
     // Alias declarations for ease of use
