@@ -1,6 +1,7 @@
 #pragma once
 #include <vcruntime.h>
 #include <ratio>
+#include "dependencies/strong_types/strong_types.h"
 
 namespace Weight
 {
@@ -12,7 +13,7 @@ namespace Weight
     // The ratio defaults to a ratio of 1/1 for grams.
     */
     template<typename T, typename R = std::ratio<1>>
-    struct Unit
+    struct Unit : StrongType<T, R>
     {
         using Type = T;
 
@@ -24,7 +25,7 @@ namespace Weight
         // constexpr to have the literal operator be constexpr too.
         */
         constexpr explicit Unit(Type weight)
-            : _weight(weight)
+            : StrongType<T, R>(weight)
         { }
 
         constexpr Unit(const Unit& other)
@@ -141,36 +142,6 @@ namespace Weight
         friend Unit operator/(Type factor, const Unit& weight)
         {
             return weight / factor;
-        }
-
-        bool operator==(const Unit& other)
-        {
-            return _weight == other._weight;
-        }
-
-        bool operator<(const Unit& other)
-        {
-            return _weight < other._weight;
-        }
-
-        bool operator>(const Unit& other)
-        {
-            return _weight > other._weight;
-        }
-
-        bool operator<=(const Unit& other)
-        {
-            return _weight <= other._weight;
-        }
-
-        bool operator>=(const Unit& other)
-        {
-            return _weight >= other._weight;
-        }
-
-        bool operator!=(const Unit& other)
-        {
-            return _weight != other._weight;
         }
 
     private:
