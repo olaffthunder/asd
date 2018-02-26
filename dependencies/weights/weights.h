@@ -3,7 +3,7 @@
 #include <ratio>
 #include "dependencies/strong_types/strong_types.h"
 
-namespace Weight
+namespace unit
 {
     /*
     // A Unit of weight is defined by a type T to represent the
@@ -26,6 +26,15 @@ namespace Weight
         */
         constexpr explicit Unit(Type weight)
             : StrongType<T, R>(weight)
+        { }
+
+        //TODO this should be unnecessary!
+        constexpr explicit Unit(double weight)
+            : StrongType<T, R>(static_cast<T>(weight))
+        { }
+
+        constexpr explicit Unit(int weight)
+            : StrongType<T, R>(static_cast<T>(weight))
         { }
 
         constexpr Unit(const Unit& other)
@@ -130,60 +139,4 @@ namespace Weight
     };
 
     // Alias declarations for ease of use
-    using Milligrams = Unit<std::size_t, std::milli>;
-
-    using Grams = Unit<std::size_t>;
-
-    using Kilograms = Unit<std::size_t, std::kilo>;
-
-    using Ounce = Unit<std::size_t, std::ratio<28>>;
-
-    namespace Literals
-    {
-        // Literal operators, always one for integers and one
-        // for floating-point values.
-
-        constexpr Milligrams operator""_mg(unsigned long long weight)
-        {
-            return Milligrams(weight);
-        }
-
-        constexpr Unit<long double, std::milli> operator""_mg(long double weight)
-        {
-            return Unit<long double, std::milli>(weight);
-        }
-
-        constexpr Grams operator""_g(unsigned long long weight)
-        {
-            return Grams(weight);
-        }
-
-        constexpr Unit<long double> operator""_g(long double weight)
-        {
-            return Unit<long double>(weight);
-        }
-
-
-        constexpr Kilograms operator""_kg(unsigned long long weight)
-        {
-            return Kilograms(weight);
-        }
-
-        constexpr Unit<long double, std::kilo> operator""_kg(long double weight)
-        {
-            return Unit<long double, std::kilo>(weight);
-        }
-
-        constexpr Ounce operator""_oz(unsigned long long weight)
-        {
-            return Ounce(weight);
-        }
-
-        constexpr Unit<long double, std::ratio<28>> operator""_oz(long double weight)
-        {
-            return Unit<long double, std::ratio<28>>(weight);
-        }
-    }
-
-    using namespace Literals;
 }
