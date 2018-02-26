@@ -111,16 +111,6 @@ namespace Weight
             return *this;
         }
 
-        Unit operator*(Type factor)
-        {
-            return Unit(value_ * factor);
-        }
-
-        friend Unit operator*(Type factor, const Unit& weight)
-        {
-            return weight * factor;
-        }
-
         Unit& operator/=(Type factor)
         {
             value_ /= factor;
