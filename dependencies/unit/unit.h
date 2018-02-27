@@ -1,8 +1,9 @@
 #pragma once
 #include <vcruntime.h>
 #include <ratio>
+#include "dependencies/strong_types/strong_types.h"
 
-namespace Weight
+namespace unit
 {
     /*
     // A Unit of weight is defined by a type T to represent the
@@ -12,7 +13,7 @@ namespace Weight
     // The ratio defaults to a ratio of 1/1 for grams.
     */
     template<typename T, typename R = std::ratio<1>>
-    struct Unit
+    struct Unit : StrongType<T, R>
     {
         using Type = T;
 
@@ -24,18 +25,27 @@ namespace Weight
         // constexpr to have the literal operator be constexpr too.
         */
         constexpr explicit Unit(Type weight)
-            : _weight(weight)
+            : StrongType<T, R>(weight)
+        { }
+
+        //TODO this should be unnecessary!
+        constexpr explicit Unit(double weight)
+            : StrongType<T, R>(static_cast<T>(weight))
+        { }
+
+        constexpr explicit Unit(int weight)
+            : StrongType<T, R>(static_cast<T>(weight))
         { }
 
         constexpr Unit(const Unit& other)
-            : _weight(other._weight)
+            : value_(other.value_)
         { }
 
         Unit& operator=(const Unit& other)
         {
             if (this != &other)
             {
-                _weight = other._weight;
+                value_ = other.value_;
             }
 
             return *this;
@@ -63,13 +73,7 @@ namespace Weight
 
             conversion /= Ratio::den * W::Ratio::num;
 
-            return W(_weight * conversion);
-        }
-
-        // Member access
-        Type weight() const
-        {
-            return _weight;
+            return W(value_ * conversion);
         }
 
         /*
@@ -83,156 +87,56 @@ namespace Weight
         */
         Unit& operator+=(const Unit& other)
         {
-            _weight += other.weigth;
+            value_ += other.weigth;
 
             return *this;
         }
 
         Unit operator+(Unit other)
         {
-            other._weight += _weight;
+            other.value_ += value_;
 
             return other;
         }
 
         Unit& operator-=(const Unit& other)
         {
-            _weight -= other._weight;
+            value_ -= other.value_;
 
             return *this;
         }
 
         Unit operator-(Unit other)
         {
-            other._weight += _weight;
+            other.value_ += value_;
 
             return other;
         }
 
         Unit& operator*=(Type factor)
         {
-            _weight *= factor;
+            value_ *= factor;
 
             return *this;
         }
 
-        Unit operator*(Type factor)
-        {
-            return Unit(_weight * factor);
-        }
-
-        friend Unit operator*(Type factor, const Unit& weight)
-        {
-            return weight * factor;
-        }
-
         Unit& operator/=(Type factor)
         {
-            _weight /= factor;
+            value_ /= factor;
 
             return *this;
         }
 
         Unit operator/(Type factor)
         {
-            return Unit(_weight / factor);
+            return Unit(value_ / factor);
         }
 
         friend Unit operator/(Type factor, const Unit& weight)
         {
             return weight / factor;
         }
-
-        bool operator==(const Unit& other)
-        {
-            return _weight == other._weight;
-        }
-
-        bool operator<(const Unit& other)
-        {
-            return _weight < other._weight;
-        }
-
-        bool operator>(const Unit& other)
-        {
-            return _weight > other._weight;
-        }
-
-        bool operator<=(const Unit& other)
-        {
-            return _weight <= other._weight;
-        }
-
-        bool operator>=(const Unit& other)
-        {
-            return _weight >= other._weight;
-        }
-
-        bool operator!=(const Unit& other)
-        {
-            return _weight != other._weight;
-        }
-
-    private:
-
-        Type _weight;
     };
 
     // Alias declarations for ease of use
-    using Milligrams = Unit<std::size_t, std::milli>;
-
-    using Grams = Unit<std::size_t>;
-
-    using Kilograms = Unit<std::size_t, std::kilo>;
-
-    using Ounce = Unit<std::size_t, std::ratio<28>>;
-
-    namespace Literals
-    {
-        // Literal operators, always one for integers and one
-        // for floating-point values.
-
-        constexpr Milligrams operator""_mg(unsigned long long weight)
-        {
-            return Milligrams(weight);
-        }
-
-        constexpr Unit<long double, std::milli> operator""_mg(long double weight)
-        {
-            return Unit<long double, std::milli>(weight);
-        }
-
-        constexpr Grams operator""_g(unsigned long long weight)
-        {
-            return Grams(weight);
-        }
-
-        constexpr Unit<long double> operator""_g(long double weight)
-        {
-            return Unit<long double>(weight);
-        }
-
-
-        constexpr Kilograms operator""_kg(unsigned long long weight)
-        {
-            return Kilograms(weight);
-        }
-
-        constexpr Unit<long double, std::kilo> operator""_kg(long double weight)
-        {
-            return Unit<long double, std::kilo>(weight);
-        }
-
-        constexpr Ounce operator""_oz(unsigned long long weight)
-        {
-            return Ounce(weight);
-        }
-
-        constexpr Unit<long double, std::ratio<28>> operator""_oz(long double weight)
-        {
-            return Unit<long double, std::ratio<28>>(weight);
-        }
-    }
-
-    using namespace Literals;
 }
