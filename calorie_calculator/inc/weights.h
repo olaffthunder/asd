@@ -28,7 +28,7 @@ namespace calorie_calculator
 
         using Ounce = unit::Unit<std::size_t, std::ratio<28>>;
 
-        namespace Literals
+        namespace literals
         {
             // Literal operators, always one for integers and one
             // for floating-point values.
@@ -75,6 +75,6 @@ namespace calorie_calculator
             }
         }
 
-        using namespace Literals;
+        using namespace literals;
     }
 }
