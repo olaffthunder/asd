@@ -1,4 +1,4 @@
-#include "calorie_calculator/inc/algorithm.h"
+﻿#include "calorie_calculator/inc/algorithm.h"
 
 namespace calorie_calculator
 {

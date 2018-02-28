@@ -1,4 +1,4 @@
-#define CATCH_CONFIG_MAIN
+﻿#define CATCH_CONFIG_MAIN
 #include "dependencies/catch/catch.hpp"
 #include "dependencies/strong_types/strong_types.h"
 

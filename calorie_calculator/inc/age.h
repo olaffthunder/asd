@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 #include "dependencies/strong_types/strong_types.h"
 
 namespace calorie_calculator

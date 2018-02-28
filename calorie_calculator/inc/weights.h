@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 #include <vcruntime.h>
 #include <ratio>
 #include "dependencies/strong_types/strong_types.h"

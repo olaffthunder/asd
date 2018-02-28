@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 #include "dependencies/unit/unit.h"
 
 namespace calorie_calculator
