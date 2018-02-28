@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 #include "calorie_calculator/inc/calories.h"
 #include "calorie_calculator/inc/percentages.h"
 #include "calorie_calculator/inc/age.h"
