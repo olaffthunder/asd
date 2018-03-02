@@ -28,15 +28,6 @@ namespace unit
             : StrongType<T, R>(weight)
         { }
 
-        //TODO this should be unnecessary!
-        constexpr explicit Unit(double weight)
-            : StrongType<T, R>(static_cast<T>(weight))
-        { }
-
-        constexpr explicit Unit(int weight)
-            : StrongType<T, R>(static_cast<T>(weight))
-        { }
-
         constexpr Unit(const Unit& other)
             : value_(other.value_)
         { }

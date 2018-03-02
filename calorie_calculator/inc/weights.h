@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 #include <vcruntime.h>
 #include <ratio>
 #include "dependencies/strong_types/strong_types.h"
@@ -20,61 +20,61 @@ namespace calorie_calculator
         //TODO weights in size_t?! use a primitive floating point type instead!
 
         // Alias declarations for ease of use
-        using Milligrams = unit::Unit<std::size_t, std::milli>;
+        using Milligrams = unit::Unit<double, std::milli>;
 
-        using Grams = unit::Unit<std::size_t>;
+        using Grams = unit::Unit<double>;
 
-        using Kilograms = unit::Unit<std::size_t, std::kilo>;
+        using Kilograms = unit::Unit<double, std::kilo>;
 
-        using Ounce = unit::Unit<std::size_t, std::ratio<28>>;
+        using Ounce = unit::Unit<double, std::ratio<28>>;
 
-        namespace Literals
+        namespace literals
         {
             // Literal operators, always one for integers and one
             // for floating-point values.
 
             constexpr Milligrams operator""_mg(unsigned long long weight)
             {
-                return Milligrams(static_cast<size_t>(weight));
+                return Milligrams(static_cast<double>(weight));
             }
 
             constexpr Milligrams operator""_mg(long double weight)
             {
-                return Milligrams(static_cast<size_t>(weight));
+                return Milligrams(static_cast<double>(weight));
             }
 
             constexpr Grams operator""_g(unsigned long long weight)
             {
-                return Grams(static_cast<size_t>(weight));
+                return Grams(static_cast<double>(weight));
             }
 
             constexpr Grams operator""_g(long double weight)
             {
-                return Grams(static_cast<size_t>(weight));
+                return Grams(static_cast<double>(weight));
             }
 
 
             constexpr Kilograms operator""_kg(unsigned long long weight)
             {
-                return Kilograms(static_cast<size_t>(weight));
+                return Kilograms(static_cast<double>(weight));
             }
 
             constexpr Kilograms operator""_kg(long double weight)
             {
-                return Kilograms(static_cast<size_t>(weight));
+                return Kilograms(static_cast<double>(weight));
             }
 
             constexpr Ounce operator""_oz(unsigned long long weight)
             {
-                return Ounce(static_cast<size_t>(weight));
+                return Ounce(static_cast<double>(weight));
             }
 
             constexpr Ounce operator""_oz(long double weight)
             {
-                return Ounce(static_cast<size_t>(weight));
+                return Ounce(static_cast<double>(weight));
             }
         }
 
-        using namespace Literals;
+        using namespace literals;
     }
 }
