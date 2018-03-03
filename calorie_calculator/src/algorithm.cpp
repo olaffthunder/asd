@@ -69,6 +69,10 @@ namespace calorie_calculator
     namespace body_fat_estimation
     {
         using namespace age::literals;
+        percentage::Percentage get_adult_body_fat_percentage_by_bmi(const profile::Profile & profile)
+        {
+            return get_adult_body_fat_percentage_by_bmi(profile.getWeight(), profile.getHeight(), profile.getAge());
+        }
         percentage::Percentage get_adult_body_fat_percentage_by_bmi(const weight::Kilograms &weight, const height::Meter &height, const age::Age &age)
         {
             //TODO
