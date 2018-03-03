@@ -5,7 +5,7 @@ namespace calorie_calculator
 {
     namespace height
     {
-        using Meter = unit::Unit<std::size_t>;
+        using Meter = unit::Unit<double>;
         using Centimeter = unit::Unit<std::size_t, std::centi>;
         using Height = Meter;
 
@@ -13,12 +13,12 @@ namespace calorie_calculator
         {
             constexpr Meter operator""_m(unsigned long long weight)
             {
-                return Meter(weight);
+                return Meter(static_cast<double>(weight));
             }
 
             constexpr Meter operator""_m(long double weight)
             {
-                return Meter(static_cast<size_t>(weight));
+                return Meter(weight);
             }
 
             constexpr Centimeter operator""_cm(unsigned long long weight)

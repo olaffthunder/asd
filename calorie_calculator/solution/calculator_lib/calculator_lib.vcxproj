@@ -122,9 +122,14 @@
     <ClInclude Include="..\..\inc\algorithm.h" />
     <ClInclude Include="..\..\inc\basic_utility.h" />
     <ClInclude Include="..\..\inc\calories.h" />
+    <ClInclude Include="..\..\inc\height.h" />
+    <ClInclude Include="..\..\inc\percentages.h" />
+    <ClInclude Include="..\..\inc\profile.h" />
+    <ClInclude Include="..\..\inc\weights.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\src\algorithm.cpp" />
+    <ClCompile Include="..\..\src\profile.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

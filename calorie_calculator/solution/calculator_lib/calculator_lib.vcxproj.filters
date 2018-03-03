@@ -23,9 +23,24 @@
     <ClInclude Include="..\..\inc\age.h">
       <Filter>inc</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\inc\height.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\inc\percentages.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\inc\profile.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\inc\weights.h">
+      <Filter>inc</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\src\algorithm.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\profile.cpp">
       <Filter>src</Filter>
     </ClCompile>
   </ItemGroup>

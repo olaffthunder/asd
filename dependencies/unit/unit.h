@@ -64,7 +64,7 @@ namespace unit
 
             conversion /= Ratio::den * W::Ratio::num;
 
-            return W(value_ * conversion);
+            return W(static_cast<U>(this->get() * conversion));
         }
 
         /*
