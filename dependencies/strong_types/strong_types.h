@@ -27,6 +27,11 @@ public:
         return !(*this < rhs);
     }
 
+    bool operator==(const StrongType& other)
+    {
+        return get() == other.get();
+    }
+
     friend bool operator < (const StrongType &lhs, const StrongType &rhs)
     {
         return lhs.get() < rhs.get();
@@ -59,6 +64,10 @@ public:
         return rhs * lhs;
     }
 
+    friend bool operator==(const StrongType& current, const StrongType& other)
+    {
+        return current.get() == other.get();
+    }
 private:
     T value_;
 };

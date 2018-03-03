@@ -78,7 +78,7 @@ namespace unit
         */
         Unit& operator+=(const Unit& other)
         {
-            value_ += other.weigth;
+            value_ += other.value_;
 
             return *this;
         }
