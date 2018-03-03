@@ -1,10 +1,35 @@
 ﻿#include "calorie_calculator/inc/algorithm.h"
-
+#include "calorie_calculator/inc/profile.h"
 namespace calorie_calculator
 {
     namespace basal_metabolic_estimation
     {
         using namespace age::literals;
+        calories::Calories harris_benedict_equation_original(const profile::Profile &profile)
+        {
+            return harris_benedict_equation_original(profile.getWeight(), profile.getHeight(), profile.getAge());
+        }
+
+        calories::Calories harris_benedict_equation_revised(const profile::Profile &profile)
+        {
+            return harris_benedict_equation_revised(profile.getWeight(), profile.getHeight(), profile.getAge());
+        }
+
+        calories::Calories world_health_organization_equation(const profile::Profile &profile)
+        {
+            return world_health_organization_equation(profile.getWeight(), profile.getAge());
+        }
+
+        calories::Calories mifflin_st_jeor_equation(const profile::Profile &profile)
+        {
+            return mifflin_st_jeor_equation(profile.getWeight(), profile.getHeight(), profile.getAge());
+        }
+
+        calories::Calories katch_mc_ardle_formular(const profile::Profile &profile)
+        {
+            return katch_mc_ardle_formular(profile.getWeight());
+        }
+
         //TODO add women too!
         //this is the original formular for men only
         calories::Calories harris_benedict_equation_original(const weight::Kilograms &weight, const height::Centimeter &height, const age::Age &age)

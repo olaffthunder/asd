@@ -4,6 +4,7 @@
 #include "calorie_calculator/inc/age.h"
 #include "calorie_calculator/inc/height.h"
 #include "calorie_calculator/inc/weights.h"
+#include "calorie_calculator/inc/profile.h"
 
 namespace calorie_calculator
 {
@@ -21,6 +22,16 @@ namespace calorie_calculator
 
     namespace basal_metabolic_estimation
     {
+        /*
+           TODO add Tests to compare the results
+           TODO after that: remove functions that take weight, height and age
+           TODO provide generspecific implementation
+        */
+        calories::Calories harris_benedict_equation_original(const profile::Profile &profile);
+        calories::Calories harris_benedict_equation_revised(const profile::Profile &profile);
+        calories::Calories world_health_organization_equation(const profile::Profile &profile);
+        calories::Calories mifflin_st_jeor_equation(const profile::Profile &profile);
+        calories::Calories katch_mc_ardle_formular(const profile::Profile &profile);
         //TODO use dimensions for height
         calories::Calories harris_benedict_equation_original(const weight::Kilograms &weight, const height::Centimeter &height, const age::Age &age);
         calories::Calories harris_benedict_equation_revised(const weight::Kilograms &weight, const height::Centimeter &height, const age::Age &age);
