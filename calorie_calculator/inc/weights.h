@@ -21,12 +21,10 @@ namespace calorie_calculator
 
         // Alias declarations for ease of use
         using Milligrams = unit::Unit<double, std::milli>;
-
         using Grams = unit::Unit<double>;
-
         using Kilograms = unit::Unit<double, std::kilo>;
-
         using Ounce = unit::Unit<double, std::ratio<28>>;
+        using Weight = Grams;
 
         namespace literals
         {
