@@ -7,6 +7,7 @@ namespace calorie_calculator
     {
         using Meter = unit::Unit<std::size_t>;
         using Centimeter = unit::Unit<std::size_t, std::centi>;
+        using Height = Meter;
 
         namespace literals
         {

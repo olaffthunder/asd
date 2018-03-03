@@ -29,7 +29,7 @@ namespace unit
         { }
 
         constexpr Unit(const Unit& other)
-            : value_(other.value_)
+            : StrongType<T, R>(other.get())
         { }
 
         Unit& operator=(const Unit& other)
