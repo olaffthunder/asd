@@ -18,5 +18,9 @@ namespace calorie_calculator
         {
             return weight_;
         }
+        Gender Profile::getGender() const
+        {
+            return gender_;
+        }
     }
 }
